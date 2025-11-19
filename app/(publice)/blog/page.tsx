@@ -1,4 +1,6 @@
+import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
     title: "Blog Page",
@@ -24,12 +26,14 @@ async function Blogs() {
 
             {
                 blog.map((item: any) =>
-                    <div key={item._id}>
+                    <div key={item._id} className="flex gap-3">
                         <h1> <span className="text-blue-500">{item._id}</span>: {item.description}</h1>
+                        <Button asChild className="cursor-pointer mt-1 mb-2">
+                            <Link href={`/blog/${item._id}`}>Details</Link>
+                        </Button>
                     </div>
                 )
             }
-
 
 
 
